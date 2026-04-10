@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>The Cardinal Sins I Keep Seeing in Active Directory</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">The Cardinal Sins I Keep Seeing in Active Directory</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+I&#39;ve been working in IT/Cybersecurity for seven years now, and I keep finding common day-to-day issues that could be resolved with a simple…
+</section>
+<section data-field="body" class="e-content">
+<section name="f0d3" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="328f" id="328f" class="graf graf--h3 graf--leading graf--title">The Cardinal Sins I Keep Seeing in Active Directory</h3><figure name="47c7" id="47c7" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*g2qqTCvafBC5MZIzKBFGDg.png" data-width="1376" data-height="768" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*g2qqTCvafBC5MZIzKBFGDg.png"></figure><p name="fbe5" id="fbe5" class="graf graf--p graf-after--figure">I&#39;ve been working in IT/Cybersecurity for seven years now, and I keep finding common day-to-day issues that could be resolved with a simple change in Active Directory. Now I understand, onboarding new users, computers, and printers can be annoying. However, it doesn’t have to be as painful as people think. However, I keep seeing this all the time. Users are being created but aren&#39;t actively using security groups, and users aren’t going into Object Units (OUs) for short.</p><p name="7343" id="7343" class="graf graf--p graf-after--p">Now, if things get inherited, that’s one thing. However, I had to train a few System Admins/Help Desk staff to understand the repercussions of not using Security Groups when auditing a Domain Controller.</p><p name="a9c7" id="a9c7" class="graf graf--p graf-after--p">I created a Domain Controller as an example of what I saw:</p><figure name="b0b7" id="b0b7" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*TNt7nk23RrL_KO7EinQ_nA.png" data-width="705" data-height="440" src="https://cdn-images-1.medium.com/max/800/1*TNt7nk23RrL_KO7EinQ_nA.png"></figure><p name="af5a" id="af5a" class="graf graf--p graf-after--figure">Users are being created in the Forest but not being assigned to the correct OU. I seen that a lot. That’s a user, but it&#39;s set at the default. If this person is working in a department, they need ot use the correct OU. Like, does this person need HR? Is it a manager, etc.? But it&#39;s just directly there. Why? Then, checking the user itself:</p><figure name="4895" id="4895" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*-ke8StVPWXsG7najuplYWQ.png" data-width="335" data-height="447" src="https://cdn-images-1.medium.com/max/800/1*-ke8StVPWXsG7najuplYWQ.png"></figure><p name="bd56" id="bd56" class="graf graf--p graf-after--figure">No context, just a user, now checking their security groups or distribution groups.</p><figure name="2956" id="2956" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*kLxuLxpE1Ius9HnCu0zDag.png" data-width="333" data-height="446" src="https://cdn-images-1.medium.com/max/800/1*kLxuLxpE1Ius9HnCu0zDag.png"></figure><p name="2490" id="2490" class="graf graf--p graf-after--figure">So why is he a domain admin? So basically, you have a user you don’t know who they are or what they do, with RDP access, and they&#39;re a domain admin. But they have to keep that around because this account basically controls the business. This is all hypothetical in my Active Directory lab, but the point is that I&#39;ve seen this in many companies. When it comes time to audit this person, they&#39;re compromised because they have to keep this account open and be a domain admin for xyz reasons. No, anyone who needs to access information must be added to a distribution group/security group. HR documents need to stay with them because they contain sensitive information, such as PII. IT shouldn’t really have access. Part of the reporting process is discovery. I have found a lot of this, and it needs to be fixed asap. You&#39;re basically giving out the keys to the castle, and wonder how you got robbed.</p><p name="e91b" id="e91b" class="graf graf--p graf-after--p">Another sin I keep seeing is major. Ok, picking on HR for this example:</p><figure name="acfc" id="acfc" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*sgburwinlMyoJbPBaEkQUQ.png" data-width="727" data-height="481" src="https://cdn-images-1.medium.com/max/800/1*sgburwinlMyoJbPBaEkQUQ.png"></figure><figure name="7eba" id="7eba" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*hcji-jaEkosSMZ3pUm6Lgg.png" data-width="328" data-height="385" src="https://cdn-images-1.medium.com/max/800/1*hcji-jaEkosSMZ3pUm6Lgg.png"></figure><p name="fd28" id="fd28" class="graf graf--p graf-after--figure">Ok, we have HR and a Security group, great. But also, this is the problem:</p><figure name="f7c8" id="f7c8" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*4eXlJnpNxCp0Wt68vvoArg.png" data-width="291" data-height="370" src="https://cdn-images-1.medium.com/max/800/1*4eXlJnpNxCp0Wt68vvoArg.png"></figure><p name="0c5b" id="0c5b" class="graf graf--p graf-after--figure">I also see this all the time. You have the security group, sure, but users can access the folder directly rather than through it, and you have a user with complete control over the share folder.</p><figure name="1a29" id="1a29" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*pOZAMXcfQks8BWeF5Ehxvg.png" data-width="622" data-height="433" src="https://cdn-images-1.medium.com/max/800/1*pOZAMXcfQks8BWeF5Ehxvg.png"></figure><p name="d9bd" id="d9bd" class="graf graf--p graf-after--figure">So, if this account is deleted, everyone who had full access to this folder will no longer have it, and recovering this shared folder is extremely painful because a user, rather than a group, now controls the parent folder. I see this all the time. A group or the Administrator should have control over this and remove users by default, because not everyone needs access to it. And if they do, you can make a child folder in the parent folder to restrict accounts. Threat actors will look for anything they can get their hands on, making it an easy target.</p><p name="d316" id="d316" class="graf graf--p graf-after--p">Again, though, this is all on my hypothetical Domain Controller I made as a lab, but I seen it a handful of times. So when you are onboarding a new user, don’t just think of this as a ticket to be completed, ask, “What is this user’s department, what needs to be restricted, and what level of access this person needs?” Ask for a user who has that level of access.</p><p name="2503" id="2503" class="graf graf--p graf-after--p">It’s a simple fix that may take an hour or two, but it can be hardened for Active Directory. Create new groups, add the users, sync with Azure Sync Server, and run gpupdate /force on the Domain Controller. Also, running an audit every quarter helps ensure users who are no longer with the company are disabled.</p><p name="1a7d" id="1a7d" class="graf graf--p graf-after--p">Also, running AccessEnum helps too:</p><div name="b915" id="b915" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/accessenum" data-href="https://learn.microsoft.com/en-us/sysinternals/downloads/accessenum" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://learn.microsoft.com/en-us/sysinternals/downloads/accessenum"><strong class="markup--strong markup--mixtapeEmbed-strong">AccessEnum - Sysinternals</strong><br><em class="markup--em markup--mixtapeEmbed-em">This simple yet powerful security tool shows you who has what access to directories, files and Registry keys on your…</em>learn.microsoft.com</a><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/accessenum" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="43662797799c85d7c63b850e766051b4" data-thumbnail-img-id="0*tWc-ZikjRD3Ogz-e" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*tWc-ZikjRD3Ogz-e);"></a></div><p name="9769" id="9769" class="graf graf--p graf-after--mixtapeEmbed">I also use this in pentesting and auditing to get a clear idea of what access to folders, groups, etc. can combine with BloodHound, which can be deadly, but also helps show how to harden Active Directory. That’s why Pentest is extremely important to check for these holes, it&#39;s to help find a hole and provide the necessary feedback to fix.</p><figure name="35b9" id="35b9" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*57fAucNlV5PbSNmqBNuvDQ.png" data-width="1376" data-height="768" src="https://cdn-images-1.medium.com/max/800/1*57fAucNlV5PbSNmqBNuvDQ.png"></figure><p name="9c00" id="9c00" class="graf graf--p graf-after--figure graf--trailing">Thank you for reading!</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@aaronashley466" class="p-author h-card">The Husky Hacker</a> on <a href="https://medium.com/p/29727d41279e"><time class="dt-published" datetime="2026-02-01T21:15:45.720Z">February 1, 2026</time></a>.</p><p><a href="https://medium.com/@aaronashley466/the-cardinal-sins-i-keep-seeing-in-active-directory-29727d41279e" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on April 10, 2026.</p></footer></article></body></html>

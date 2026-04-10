@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>My New Tool, Web Surface Inspector</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">My New Tool, Web Surface Inspector</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+I wanted to build out a new tool for the cybersecurity challenge we are all facing: website security and AI security. It’s also a…
+</section>
+<section data-field="body" class="e-content">
+<section name="cf51" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="263c" id="263c" class="graf graf--h3 graf--leading graf--title">My New Tool, Web Surface Inspector</h3><figure name="039c" id="039c" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*L5FFzjvS2_bXq9LhOTWN5w.png" data-width="1376" data-height="768" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*L5FFzjvS2_bXq9LhOTWN5w.png"></figure><p name="7c82" id="7c82" class="graf graf--p graf-after--figure">I wanted to build out a new tool for the cybersecurity challenge we are all facing: website security and AI security. It’s also a never-ending battle to keep up with new attack surfaces, AI prompt injection, etc. What started as a simple web scraping project grew to, oh, you know, that’s not a bad idea if I was also able to learn whether AI is being prompted during investigation, as well as what vulnerabilities I can view during a pentest or investigation.</p><p name="1fb0" id="1fb0" class="graf graf--p graf-after--p">It can be daunting at times, but what if you could automate that process? That is something I wanted to develop, like the ability to run recon during a pentest or with a vulnerability scanner that web scrapes, reports from the CVE, and also checks for AI prompt injections.</p><p name="4589" id="4589" class="graf graf--p graf-after--p">Thinking about it, I already know enough Python, and that would be the perfect language to use on Linux since it’s a quick tool that only does recon and also inspects the page. So I grabbed my morning coffee and went to town.</p><figure name="a798" id="a798" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*3yY6CL4aY0uolb_b-WVfKg.png" data-width="1376" data-height="768" src="https://cdn-images-1.medium.com/max/800/1*3yY6CL4aY0uolb_b-WVfKg.png"></figure><p name="bf50" id="bf50" class="graf graf--p graf-after--figure">I started with the quick, ok, what was the response to get 200? Everything I learned from Boise State left my head for a second, and I went to W3 schools to remember and felt that bit of defeat: “How did I forget to write a function?” Somehow it came back to me once I grabbed my second cup. I&#39;ve been working as a field tech and system admin, nose to the grindstone with Sec+, PJPT, basic help desk, and studying for the OSCP. However, one of my greatest passions/weaknesses is coding. I don’t use it every day. My degree is in Computer Science, and my minor is Cybersecurity. I feel in hard times, but landed my first IT job in 2021, and have been trying to keep up with it as much as I can for almost the last 5 years.</p><p name="99dd" id="99dd" class="graf graf--p graf-after--p">But today, I never built something I been extremely proud of and functional! I am not a dev, just getting by to make custom scripts to make my life a bit easier.</p><p name="e428" id="e428" class="graf graf--p graf-after--p">So I big-brained my code as best as I could!</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="python" name="5669" id="5669" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> requests<br /><br />r = requests.get(<span class="hljs-string">&#x27;https://www.example.com&#x27;</span>)<br /><span class="hljs-built_in">print</span>(r.url)<br /><span class="hljs-built_in">print</span>(r.status_code)</span></pre><p name="516b" id="516b" class="graf graf--p graf-after--pre">For my example:</p><figure name="8e5c" id="8e5c" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*e38yZUQOKCyacSGszX3FZA.png" data-width="880" data-height="356" src="https://cdn-images-1.medium.com/max/800/1*e38yZUQOKCyacSGszX3FZA.png"><figcaption class="imageCaption">Just testing for that 200 status</figcaption></figure><figure name="d438" id="d438" class="graf graf--figure graf-after--figure"><img class="graf-image" data-image-id="1*BpruEBKNKfltP1yvGxihUg.png" data-width="441" data-height="100" src="https://cdn-images-1.medium.com/max/800/1*BpruEBKNKfltP1yvGxihUg.png"><figcaption class="imageCaption">Yay!!! It works!!!</figcaption></figure><p name="a946" id="a946" class="graf graf--p graf-after--figure">So I started thinking: now I need to prompt for the web address, since I want to test specific domains. Also, could I get away with not using beautifulsoup for this project? I want to run it without having to look for the libraries I need to install, just the common ones at the ready. So I got, I found my workaround! Not to say that it is a bad thing not to have, I want to run it and go. The only requirement I have is this:</p><pre data-code-block-mode="1" spellcheck="false" data-code-block-lang="shell" name="0a49" id="0a49" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-meta prompt_">requests&gt;</span><span class="language-bash">=2.31.0</span></span></pre><p name="c214" id="c214" class="graf graf--p graf-after--pre">So for testing out my input:</p><pre data-code-block-mode="2" spellcheck="false" data-code-block-lang="python" name="938e" id="938e" class="graf graf--pre graf-after--p graf--preV2"><span class="pre--content"><span class="hljs-keyword">import</span> requests<br /><span class="hljs-keyword">from</span> urllib.parse <span class="hljs-keyword">import</span> urlparse, urljoin<br />                          <br />user_url = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Please enter a URL: &quot;</span>)<br /><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;You entered the following URL: <span class="hljs-subst">{user_url}</span>&#x27;</span>)<br />r = requests.get(user_url)<br /><br /><span class="hljs-comment"># check for status code 200 </span><br /><br /><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Fetched URL:&quot;</span>, r.url)<br /><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Status Code:&quot;</span>, r.status_code)<br /><br /><span class="hljs-comment"># domain extraction</span><br /><br />parsed = urlparse(user_url)<br />domain = parsed.netloc.replace(<span class="hljs-string">&quot;www.&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)<br /><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Domain:&quot;</span>, domain)</span></pre><figure name="efa8" id="efa8" class="graf graf--figure graf-after--pre"><img class="graf-image" data-image-id="1*x9L7TgIZft2RwPyWdm08kw.png" data-width="1001" data-height="286" src="https://cdn-images-1.medium.com/max/800/1*x9L7TgIZft2RwPyWdm08kw.png"><figcaption class="imageCaption">That’s part one done!!</figcaption></figure><p name="6c4d" id="6c4d" class="graf graf--p graf-after--figure">Now for the added measure, getting CVS on it, but by then I asked, why not add CVE reporting too, and I&#39;ve been taking some AI security classes, and really asked myself, “Ok, so what if it also reports AI prompt injections too? We are headed that way, so why not make a vulnerability scan that does scraping, CVE, and AI prompt injection, and all you have to do is put the URL in!”</p><p name="032a" id="032a" class="graf graf--p graf-after--p">By the end of it, I had functioning code!!!</p><div name="4352" id="4352" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://github.com/HackingHusky/web-surface-inspector/tree/main" data-href="https://github.com/HackingHusky/web-surface-inspector/tree/main" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/HackingHusky/web-surface-inspector/tree/main"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - HackingHusky/web-surface-inspector: It&#39;s a web scrapper, recon, and also detects prompt…</strong><br><em class="markup--em markup--mixtapeEmbed-em">It&#39;s a web scrapper, recon, and also detects prompt injection patterns - HackingHusky/web-surface-inspector</em>github.com.</a><a href="https://github.com/HackingHusky/web-surface-inspector/tree/main" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="0b5f007109487316efd40bfcb8db4774" data-thumbnail-img-id="0*V9lwXPfu7vAN7ghe" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*V9lwXPfu7vAN7ghe);"></a></div><p name="21fe" id="21fe" class="graf graf--p graf-after--mixtapeEmbed">Testing it on the OSWAP juice box website:<a href="https://juice-shop.herokuapp.com/#/" data-href="https://juice-shop.herokuapp.com/#/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://juice-shop.herokuapp.com/#/</a></p><figure name="3d7a" id="3d7a" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*aNM5hh0N_NV9G0TjbE0aZg.png" data-width="1862" data-height="750" src="https://cdn-images-1.medium.com/max/800/1*aNM5hh0N_NV9G0TjbE0aZg.png"><figcaption class="imageCaption">It came out nicely!!!</figcaption></figure><p name="1e80" id="1e80" class="graf graf--p graf-after--figure">So I have two scripts at the ready. Both do the same thing, but I added more to the second for current cvss &gt; 7. The original works just as well. But the more you add to the prompts section, the more you’ll get what people are searching for. Here was just the option for Google:</p><figure name="a653" id="a653" class="graf graf--figure graf-after--p"><img class="graf-image" data-image-id="1*txdv3lm6VfaCmNXrLVT3SA.png" data-width="1870" data-height="672" src="https://cdn-images-1.medium.com/max/800/1*txdv3lm6VfaCmNXrLVT3SA.png"></figure><p name="fff0" id="fff0" class="graf graf--p graf-after--figure">I will review the aduit’s, and I personally love how it really came out as a three-in-one tool that you plug into a website and helps all around. It was my Christmas gift back to the community for several pentesters, coworkers, and I am very proud of this tool. Definitely will use this in my next pentesta:</p><p name="87cb" id="87cb" class="graf graf--p graf-after--p">Here is the video on how it works:</p><figure name="4fe0" id="4fe0" class="graf graf--figure graf--iframe graf-after--p"><iframe src="https://www.youtube.com/embed/sU3kw4_o3UQ?feature=oembed" width="700" height="393" frameborder="0" scrolling="no"></iframe></figure><p name="073f" id="073f" class="graf graf--p graf-after--figure">Seriously, thank you for reading. I made these AI photos for my YouTube channel and honestly loved how it turned out this year: <a href="https://www.youtube.com/channel/UCgc1tLxOuE0X9gsoaiYYBpw" data-href="https://www.youtube.com/channel/UCgc1tLxOuE0X9gsoaiYYBpw" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://www.youtube.com/channel/UCgc1tLxOuE0X9gsoaiYYBpw</a></p><p name="91c2" id="91c2" class="graf graf--p graf-after--p graf--trailing">I also made the solutions this year for the TryHackMe Advent of Cyber and showed how both red/blue operate. And solutions to CTF’s for OffSec’s proving challenges. I really love the support this year from both older and newer coworkers in Pentesting, Cybersecurity, and IT in general. 2025 was an excellent year for me, with the Sec+, PJPT, and eJPT. Still excited to see what’s next in 2026, and this will be one of many tools I’ll build to improve digital infrastructure and security poster. Hope everyone has a fantastic holiday. Again, thank you for reading my content this year. I have a blast writing these.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@aaronashley466" class="p-author h-card">The Husky Hacker</a> on <a href="https://medium.com/p/54354860e6f1"><time class="dt-published" datetime="2025-12-21T00:01:58.266Z">December 21, 2025</time></a>.</p><p><a href="https://medium.com/@aaronashley466/my-new-tool-web-surface-inspector-54354860e6f1" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on April 10, 2026.</p></footer></article></body></html>

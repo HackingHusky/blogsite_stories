@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>OSCP/PG/HTB/THM CTF Rules, Avoiding Rabbit Holes</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">OSCP/PG/HTB/THM CTF Rules, Avoiding Rabbit Holes</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+I made myself a set of rules for every CTF I encounter. And honestly, it’s great to do some CTFs and pwn some boxes. However, it’s like a…
+</section>
+<section data-field="body" class="e-content">
+<section name="98b1" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c84e" id="c84e" class="graf graf--h3 graf--leading graf--title">OSCP/PG/HTB/THM CTF Rules, Avoiding Rabbit Holes</h3><figure name="d3c9" id="d3c9" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*46qJO7Wy95MNtJvLsHHzkg.png" data-width="1024" data-height="1024" src="https://cdn-images-1.medium.com/max/800/1*46qJO7Wy95MNtJvLsHHzkg.png"></figure><p name="e6e1" id="e6e1" class="graf graf--p graf-after--figure">I made myself a set of rules for every CTF I encounter. And honestly, it’s great to do some CTFs and pwn some boxes. However, it’s like a puzzle box, not an actual real-life engagement. Others have done the engagement and found some great CVEs, but each setup is like a Rubik&#39;s Cube on a computer. You’re caught in a web of what else to do or try, and test your problem-solving skills. Like the CPTS/OSCP/(dare I say) The PT1( which Try Hack Me, certs don’t land jobs. Stop over-promising. But the practice is so-so.)/eJPT/PJPT or PNPT (actually the greatest hands-on, actual, real-life attacks you would be doing daily.), You will be tested on problem-solving skills, especially when you&#39;re first starting or studying for an exam. These are some things I had to learn the hard way, and I really want everyone to achieve their goals. I would rather share what I learn than hide it.</p><p name="8b79" id="8b79" class="graf graf--p graf-after--p">These are tips to avoid some rabbit holes you can encounter while you try to work out the problem:</p><ol class="postList"><li name="f95d" id="f95d" class="graf graf--li graf-after--p">Set a timer. Don’t burn yourself out trying to work on an issue you are not making progress on. Set it for 25 minutes, up to a maximum of 2 hours. With the intense test like the OSCP, you don’t have time to screw around with a port that’s not working. Take a step back. Give your brain a minute to think and come back to it when you feel ready. It’s not going anywhere. It&#39;s not worth crashing out or burning yourself out when you are stuck.</li><li name="d1d2" id="d1d2" class="graf graf--li graf-after--li">Make each progress note, good or bad. Record the output of everything you’re testing. You need to get this skill down in real life, too. You are always one exploit away from gaining access or finding a vulnerability. Suppose you take some really good, solid notes. You’ll be ok.</li><li name="ac67" id="ac67" class="graf graf--li graf-after--li">During recon, I notice a few things that could boost your methodology:</li></ol><figure name="6993" id="6993" class="graf graf--figure graf-after--li"><img class="graf-image" data-image-id="1*9i10S1FVxdlR2hSZzn4bog.png" data-width="587" data-height="215" src="https://cdn-images-1.medium.com/max/800/1*9i10S1FVxdlR2hSZzn4bog.png"></figure><p name="d62f" id="d62f" class="graf graf--p graf-after--figure">This means that ftp login anonymous: anonymous is not enabled. The output in nmap would tell you otherwise, and most likely, you will probably get someone else’s credentials to sign in. So be patient, or you may not even need it. The closer you look at the output and logs, the easier you’ll find it. The next step here would be to banner-grab http or run snmpwalk to see if there is a user, or if a dev left it behind in its directory, then run go buster or ffuf. Whatever your tool is, that&#39;s the most likely combo with FTP. You can try logging in as a guest as well, but if you get nowhere, that means either A, I can probably find the creds, or B, I might not even need it. It’s most likely a web-based attack.</p><p name="f992" id="f992" class="graf graf--p graf-after--p">Sometimes a port could be a red herring. You enumerated a website, and no directory has come up, but you have port 5432 open. See if you can test with common creds and SQL injection/RCE with PostgreSQL. The odd network ports stand out just like the normal ones. Banner grab the service, make sure, and keep testing. That could also be your in. When gaining your foothold, take your time.</p><p name="b245" id="b245" class="graf graf--p graf-after--p">This also goes with PrivEsc, rinse and repeat. You might see the impression enabled on Windows, but it may not work. The box is intended that way. That brings up item number four.</p><p name="9f67" id="9f67" class="graf graf--p graf-after--p">4. The box is worked in a certain way. Think about how the author intended the box to be. So take that extra moment to scan. It could be that it&#39;s really a one-off port someone is trying to use, or that you&#39;re learning about it on your own.</p><p name="d26d" id="d26d" class="graf graf--p graf-after--p">5. If the box doesn’t have a custom password list/web directory list, it&#39;s probably going to be common. The web directory list from seclists will work. If it&#39;s a password, they all use rockyou.txt. Again, don’t spend more than 5–10 minutes trying to crack this thing.</p><p name="e940" id="e940" class="graf graf--p graf-after--p">6. For the OSCP/CPTS, passing the hash is quicker than the AD section or an AD box. Get local Admin, dump hashes with Impacket/Mimikatz, or get AS-REPRoasting/Kerberoast. If you get an NTLM hash, just pass it. Enumerate with the hash. That is just as good as a password.</p><p name="bfef" id="bfef" class="graf graf--p graf-after--p">7. Rely on your instincts for PrivEsc. Manual is quicker than an automatic script.</p><p name="1ee4" id="1ee4" class="graf graf--p graf-after--p">8. Remember to Google dork or “” as your OSINT commands. Again, you could be one search away from that exploit.</p><p name="20e9" id="20e9" class="graf graf--p graf-after--p">9. Things are going to be tough; CTFs are not meant to be real-life pentesting, it&#39;s supposed to be the dojo. The moment you feel like it&#39;s too tough, treat it like a video game. There was a section where you felt stuck and didn’t know what to do. That is exactly like that.</p><p name="7509" id="7509" class="graf graf--p graf-after--p graf--trailing">Do these steps, and you’ll kill it. Thanks for reading.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@aaronashley466" class="p-author h-card">The Husky Hacker</a> on <a href="https://medium.com/p/45c9ae561961"><time class="dt-published" datetime="2026-03-14T02:17:22.060Z">March 14, 2026</time></a>.</p><p><a href="https://medium.com/@aaronashley466/oscp-pg-htb-thm-ctf-rules-avoiding-rabbit-holes-45c9ae561961" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on April 10, 2026.</p></footer></article></body></html>
